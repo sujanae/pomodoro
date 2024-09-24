@@ -39,6 +39,10 @@ class _HomePageState extends State<HomePage> {
           _button(
             title: "resume",
             onPressed: () => _controller.resume(),
+          ),
+          _button(
+            title: "start",
+            onPressed: () => _controller.start(),
           )
         ],
       ),
