@@ -1,5 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -57,4 +58,9 @@ Widget _button({required String title, VoidCallback? onPressed}) {
       child: Text(title),
     ),
   );
+}
+
+Future<void> getData() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.getString('time');
 }
