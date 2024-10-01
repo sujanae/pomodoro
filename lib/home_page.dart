@@ -1,6 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:pomodoro/shared_pref.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -44,7 +44,11 @@ class _HomePageState extends State<HomePage> {
           _button(
             title: "start",
             onPressed: () => _controller.start(),
-          )
+          ),
+          _button(
+            title: "shared Perf",
+            onPressed: () => const SharedDemo(),
+          ),
         ],
       ),
     );
@@ -58,9 +62,4 @@ Widget _button({required String title, VoidCallback? onPressed}) {
       child: Text(title),
     ),
   );
-}
-
-Future<void> getData() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  prefs.getString('time');
 }
